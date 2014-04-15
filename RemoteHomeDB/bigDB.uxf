@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>856</x>
+      <y>208</y>
+      <w>40</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>24;24;24;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>776</x>
+      <y>280</y>
+      <w>208</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Address
+--
+addressID INT(11) NOT_NULL PK
+streetNumber VARCHAR(4) NOT_NULL
+streetName VARCHAR(50) NOT_NULL
+suburb VARCHAR(50) NOT_NULL
+city VARCHAR(50) NOT_NULL
+postcode VARCHAR(4) NOT_NULL
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>624</x>
+      <y>488</y>
+      <w>208</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Device
+--
+deviceID INT(11) PK NOT_NULL
+addressID INT(11) FK NOT_NULL
+deviceName VARCHAR(20) NOT_NULL
+lat DOUBLE(9, 6) NOT_NULL
+lon DOUBLE(9, 6) NOT_NULL
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1048</x>
+      <y>168</y>
+      <w>224</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>PowerBill
+--
+userID NOT_NULL FK
+billStartDate DATE NOT_NULL
+billEndDate DATE NOT_NULL
+billPowerPurchased DECIMAL NOT_NULL
+billPowerSold DECIMAL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>808</x>
+      <y>496</y>
+      <w>72</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>56;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>784</x>
+      <y>368</y>
+      <w>40</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>24;120;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>576</x>
+      <y>56</y>
+      <w>360</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>UserAccount
+--
+userID INT(11) NOT_NULL PK
+addressID INT(11) NOT_NULL FK
+userName VARCHAR(50) NOT_NULL UNIQUE
+password VARCHAR(767)NOT_NULL
+email VARCHAR(50)
+registered VARCHAR(50)NOT_NULL
+lastLogin VARCHAR(50) NOT_NULL
+acceptedPolicy TINYINT(1) NOT_NULL
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>912</x>
+      <y>168</y>
+      <w>152</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+
+m2=1
+</panel_attributes>
+    <additional_attributes>136;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>296</x>
+      <y>56</y>
+      <w>248</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>Weather
+--
+timestamp TIMESTAMP NOT_NULL PK
+deviceID INT(11) NOT_NULL FK
+sCountry VARCHAR(2)
+sSunrise INT(11)
+sSunset INT(11)
+wID VARCHAR(100) NOT_NULL
+wMain VARCHAR(100) NOT_NULL
+wDescription VARCHAR(100) NOT_NULL
+mTemp DOUBLE NOT_NULL
+mTempMin DOUBLE NOT_NULL
+mTempMax DOUBLE NOT_NULL
+clouds INT(11) NOT_NULL
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>912</x>
+      <y>80</y>
+      <w>152</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+
+m2=1
+</panel_attributes>
+    <additional_attributes>136;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>576</x>
+      <y>280</y>
+      <w>176</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>UserDevice
+--
+userID INT(11) NOT_NULL FK
+deviceID INT(11) NOT_NULL FK</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>792</x>
+      <y>552</y>
+      <w>40</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+</panel_attributes>
+    <additional_attributes>24;24;24;96</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=yellow
+
+each node in the users 
+Remote Home system is 
+referenced by deviceID.
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>632</x>
+      <y>328</y>
+      <w>40</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>24;24;24;160</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>712</x>
+      <y>648</y>
+      <w>224</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>InverterData
+--
+deviceID INT(11) NOT_NULL FK
+timestamp TIMESTAMP NOT_NULL PK
+temp DOUBLE
+vpv1 DOUBLE
+ipv1 DOUBLE
+etotalh DOUBLE
+etoday DOUBLE
+mode INT(11)
+iac DOUBLE
+vac DOUBLE
+fac DOUBLE
+pac DOUBLE
+etotall DOUBLE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>632</x>
+      <y>208</y>
+      <w>40</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes>
+    <additional_attributes>24;24;24;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1048</x>
+      <y>40</y>
+      <w>224</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>PowerPrice
+--
+userID INT NOT_NULL FK
+companyName VARCHAR(20) NOT_NULL
+startDate DATE NOT_NULL
+endDate DATE 
+purchasePrice DECIMAL
+salePrice DECIMAL NOT_NULL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>400</x>
+      <y>272</y>
+      <w>240</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1
+</panel_attributes>
+    <additional_attributes>24;24;24;256;224;256</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>864</x>
+      <y>488</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=yellow
+deviceID is the 
+raspberry Pis
+serial Numer</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

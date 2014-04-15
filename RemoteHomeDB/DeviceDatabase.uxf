@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>180</x>
+      <y>315</y>
+      <w>234</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>InverterData
+--
+inverterID INT(11) NOT_NULL FK
+timestamp TIMESTAMP NOT_NULL PK
+temp DOUBLE
+vpv1 DOUBLE
+ipv1 DOUBLE
+etotalh DOUBLE
+etoday DOUBLE
+mode INT(11)
+iac DOUBLE
+vac DOUBLE
+fac DOUBLE
+pac DOUBLE
+etotall DOUBLE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>468</x>
+      <y>171</y>
+      <w>153</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=yellow
+
+each node in the users 
+Remote Home system is 
+referenced by deviceID.
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>162</x>
+      <y>171</y>
+      <w>261</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Inverter
+--
+inverterID INT(11) NOT_NULL PK
+deviceID INT(11) NOT_NULL FK
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>207</y>
+      <w>44</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+</panel_attributes>
+    <additional_attributes>27;27;27;108</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>468</x>
+      <y>315</y>
+      <w>252</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>Weather
+--
+timestamp TIMESTAMP NOT_NULL PK
+deviceID INT(11) NOT_NULL FK
+sCountry VARCHAR(2)
+sSunrise INT(11)
+sSunset INT(11)
+wID VARCHAR(100) NOT_NULL
+wMain VARCHAR(100) NOT_NULL
+wDescription VARCHAR(100) NOT_NULL
+mTemp DOUBLE NOT_NULL
+mTempMin DOUBLE NOT_NULL
+mTempMax DOUBLE NOT_NULL
+clouds INT(11) NOT_NULL
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
